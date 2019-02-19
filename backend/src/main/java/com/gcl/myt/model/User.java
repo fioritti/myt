@@ -13,6 +13,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.gcl.myt.model.enums.AuthProvider;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +26,12 @@ import lombok.Setter;
 })
 public class User {
 
+	public User() {}
+	
+	public User(Long id) {
+		this.id = id;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
