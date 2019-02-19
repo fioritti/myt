@@ -11,8 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.gcl.myt.model.enums.AuthProvider;
 
 import lombok.Getter;
