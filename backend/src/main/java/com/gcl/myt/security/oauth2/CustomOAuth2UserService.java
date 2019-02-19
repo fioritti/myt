@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.gcl.myt.exception.OAuth2AuthenticationProcessingException;
-import com.gcl.myt.model.AuthProvider;
 import com.gcl.myt.model.User;
+import com.gcl.myt.model.enums.AuthProvider;
 import com.gcl.myt.repository.UserRepository;
 import com.gcl.myt.security.UserPrincipal;
 import com.gcl.myt.security.oauth2.user.OAuth2UserInfo;

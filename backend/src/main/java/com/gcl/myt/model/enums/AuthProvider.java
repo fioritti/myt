@@ -1,4 +1,4 @@
-package com.gcl.myt.model;
+package com.gcl.myt.model.enums;
 
 public enum AuthProvider {
 	local,

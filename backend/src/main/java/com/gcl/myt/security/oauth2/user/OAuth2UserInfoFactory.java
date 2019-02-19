@@ -3,7 +3,7 @@ package com.gcl.myt.security.oauth2.user;
 import java.util.Map;
 
 import com.gcl.myt.exception.OAuth2AuthenticationProcessingException;
-import com.gcl.myt.model.AuthProvider;
+import com.gcl.myt.model.enums.AuthProvider;
 
 public class OAuth2UserInfoFactory {
 

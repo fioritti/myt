@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.gcl.myt.exception.BadRequestException;
-import com.gcl.myt.model.AuthProvider;
 import com.gcl.myt.model.User;
+import com.gcl.myt.model.enums.AuthProvider;
 import com.gcl.myt.payload.ApiResponse;
 import com.gcl.myt.payload.AuthResponse;
 import com.gcl.myt.payload.LoginRequest;
