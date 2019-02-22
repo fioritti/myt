@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Atividades</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>Atividades</h1>
+<ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Atividades</li>
+</ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Lists</h3>
+            <div class="box-tools pull-right">
+                <a href="/atividades/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
+                <br clear="all" />
+            </div>
+        </div>
+        <div class="box-body no-padding">
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Horário Inicial</th>
+                    <th>Horário Final</th>
+                    <th>Status</th>
+					<th>Action</th>
+                </tr>
+                <tr th:each="row : ${list}">
+                    <td th:text="${row.id}"></td>
+                    <td th:text="${row.nome}"></td>
+                    <td th:text="${row.data.dayOfMonth+'/'+row.data.monthValue+'/'+row.data.year}"></td>
+                    <td th:text="${row.horarioInicial}"></td>
+                    <td th:text="${row.horarioFinal}"></td>
+                    <td th:if="${row.status.descricao == 'Finalizada'}"><span class="label label-success" th:text="${row.status.descricao}"></span></td>
+                    <td th:if="${row.status.descricao == 'Em andamento'}"><span class="label label-warning" th:text="${row.status.descricao}"></span></td>
+                    <td>
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary btn-xs">Action</button>
+							<button type="button" class="btn btn-primary btn-xs dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="caret"></span> <span class="sr-only">Toggle	Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a th:href="${'/atividades/edit/' + row.id}">atualizar</a></li>
+								<li><a th:href="${'/atividades/delete/' + row.id}">excluir</a></li>
+							</ul>
+						</div>
+					</td>
+                </tr>
+            </table>
+        </div>
+        <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="/atividades/1">Primeira</a></li>
+                <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
+                    <a th:href="${'/atividades/' + p}" th:text="${p}"></a>
+                </li>
+                <li><a th:href="${'/atividades/' + endIndex}">Última</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
